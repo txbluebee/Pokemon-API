@@ -4,38 +4,37 @@ class MonstersController < ApplicationController
   # GET /monsters
   def index
     @monsters = Monster.all
-
-    render json: @monsters
+    json_response(@@monsters)
   end
 
   # GET /monsters/1
   def show
-    render json: @monster
+    json_response(@monsters)
   end
 
   # POST /monsters
   def create
-    @monster = Monster.new(monster_params)
-
-    if @monster.save
-      render json: @monster, status: :created, location: @monster
-    else
-      render json: @monster.errors, status: :unprocessable_entity
-    end
+    @monster = Monster.create!(monster_params)
+    json_response(@monster, :created)
   end
 
   # PATCH/PUT /monsters/1
   def update
-    if @monster.update(monster_params)
-      render json: @monster
+    if @monster.update!(monster_params)
+      json_response(@monster, :ok)
     else
-      render json: @monster.errors, status: :unprocessable_entity
+      json_response(@monster, :unprocessable_entity)
     end
   end
 
   # DELETE /monsters/1
   def destroy
     @monster.destroy
+    if @monster.destroy
+      head(:ok)
+    else
+      head(:unprocessable_entity)
+    end
   end
 
   private
@@ -46,6 +45,6 @@ class MonstersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def monster_params
-      params.require(:monster).permit(:name, :location, :move)
+      params.permit(:name, :location, :move)
     end
 end
