@@ -29,18 +29,18 @@ Through Pokemon API app, User would be able to request all Pokemons, see individ
 
 ## How to Use
 Open postman app
-1. Request all pokemon data
+1. Request all pokemon data <br />
 Select 'GET' method, visit `http://localhost:3000/api/v1/monsters`
-2. See individual pokemon ex: id=>2
+2. See individual pokemon ex: id:2 <br />
 Select 'GET' method, viist `http://localhost:3000/api/v1/monsters/2`
-3. see random pokemon
+3. see random pokemon <br />
 Select 'GET' method, viist `http://localhost:3000/api/v1/monsters?random_pokemon=`
-4. search pokemon ( replace keyword below with the pokemon you would like to find )
+4. search pokemon ( replace keyword below with the pokemon you would like to find ) <br />
 Select 'GET' method, viist `http://localhost:3000/api/v1/monsters?name=Keyword`
-5. create pokemon of your own
+5. create pokemon of your own <br />
 Select 'POST' method, viist `http://localhost:3000/api/v1/monsters`
 Click Body, under key/value enter {name/Pikachu, location/Seattle, move/lightning)
-6. Delete pokemon ex: id=>2
+6. Delete pokemon ex: id:2 <br />
 Selete 'DELETE' method, visit `http://localhost:3000/api/v1/monsters/2`
 
 
