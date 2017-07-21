@@ -3,7 +3,14 @@ class MonstersController < ApplicationController
 
   # GET /monsters
   def index
-    @monsters = Monster.all
+    if params[:name]
+      @monsters = Monster.search(params[:name])
+    elsif
+      params[:random_pokemon]
+      @monsters = Monster.random_pokemon
+    else
+      @monsters = Monster.all
+    end
     json_response(@monsters)
   end
 
