@@ -16,29 +16,35 @@ Through Pokemon API app, User would be able to request all Pokemons, see individ
 
 ## Prerequisites & Installation
 
+* install [postman app](https://www.getpostman.com/)
 * install rails gem,  [instructions](https://www.learnhowtoprogram.com/rails/ruby-on-rails-basics/rails-setup-and-structure).
 * install Postgres followed by the [instructions](https://www.learnhowtoprogram.com/ruby/ruby-database-basics/installing-postgres-7fb0cff7-a0f5-4b61-a0db-8a928b9f67ef).
-* `git clone https://github.com/txbluebee/commerce_site`
-* `cd commerce_site`
+* `git clone https://github.com/txbluebee/Pokemon-API`
+* `cd Pokemon-API`
 * `bundle install`
 * Open new tab in the terminal (Alt +T) and run the following command
 * `postgres`
-* `rails db:create`
-* `rails db:migrate db:test:prepare`
-
-
-## Running / Development
-
+* `rails db:create db:migrate db:seed`
 * `rails server`
-* Visit your app at [http://localhost:3000](http://localhost:3000).
+
+## How to Use
+Open postman app
+1. Request all pokemon data
+Select 'GET' method, visit `http://localhost:3000/api/v1/monsters`
+2. See individual pokemon ex: id=>2
+Select 'GET' method, viist `http://localhost:3000/api/v1/monsters/2`
+3. see random pokemon
+Select 'GET' method, viist `http://localhost:3000/api/v1/monsters?random_pokemon=`
+4. search pokemon ( replace keyword below with the pokemon you would like to find )
+Select 'GET' method, viist `http://localhost:3000/api/v1/monsters?name=Keyword`
+5. create pokemon of your own
+Select 'POST' method, viist `http://localhost:3000/api/v1/monsters`
+Click Body, under key/value enter {name/Pikachu, location/Seattle, move/lightning)
+6. Delete pokemon ex: id=>2
+Selete 'DELETE' method, visit `http://localhost:3000/api/v1/monsters/2`
+
 
 ## Technologies Used
-
-_HTML_
-
-_SCSS_
-
-_Bootstrap_
 
 _Ruby_
 
