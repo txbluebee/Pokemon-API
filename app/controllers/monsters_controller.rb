@@ -4,7 +4,7 @@ class MonstersController < ApplicationController
   # GET /monsters
   def index
     @monsters = Monster.all
-    json_response(@@monsters)
+    json_response(@monsters)
   end
 
   # GET /monsters/1
